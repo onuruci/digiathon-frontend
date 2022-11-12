@@ -82,7 +82,7 @@ export const connectWallet = async (setSigner) => {
 
     let res = await ethers.utils.verifyMessage(
       "Hello",
-      "0xb4b2b06e88cf2a6653cc522e618ed09aea48fbbd126dc92ae508a95c5a18f1db5cc44b3ca302acfdfaee79d33f24afe5013ca62d2a07537dd910e1479bc83a071c"
+      "hash"
     );
 
     console.log("RES:   ", res);
