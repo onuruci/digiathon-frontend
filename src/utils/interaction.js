@@ -5,7 +5,7 @@ export var provider;
 export var signer;
 export var walletWithProvider;
 
-export const signDocument = async (jsonInput, signer) => {
+export const signCheck = async () => {
   const domain = {
     name: "Ether Mail",
     version: "1",
@@ -19,34 +19,39 @@ export const signDocument = async (jsonInput, signer) => {
       { name: "name", type: "string" },
       { name: "wallet", type: "address" },
     ],
-    inputCheck: [
-      {
-        name: "name",
-        type: "string",
-      },
-      {
-        name: "value",
-        type: "string",
-      },
+    Id: [
+      { name: "name", type: "string" },
+      { name: "surname", type: "string" },
+      { name: "tc", type: "string" },
+      { name: "value", type: "string" },
+      { name: "med", type: "array" },
     ],
     Mail: [
       { name: "from", type: "Person" },
-      { name: "contents", type: "inputCheck" },
+      { name: "to", type: "Person" },
+      { name: "contents", type: "Id" },
     ],
   };
 
-  const value = {
+  const checkValue = {
     from: {
       name: "Cow",
       wallet: "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
     },
+    to: {
+      name: "Bob",
+      wallet: "0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB",
+    },
     contents: {
-      name: String(jsonInput["name"]),
-      value: String(jsonInput["amount"]),
+      name: "emre",
+      surname: "istaken",
+      tc: "123546789",
+      date: "12/11/22",
+      value: "150",
     },
   };
 
-  let hash = await signer._signTypedData(domain, types, value);
+  let hash = await signer._signTypedData(domain, types, checkValue);
   console.log("Hash:   ", hash);
   return hash;
 };

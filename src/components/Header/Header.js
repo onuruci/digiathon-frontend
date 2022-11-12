@@ -30,11 +30,8 @@ const Header = ({ setSigner, bl }) => {
             <img className="enterLogo" src={enterlogo} alt="" srcset="" />
           </div>
         ) : (
-          <div
-            className="loginButton"
-            onClick={() => disconnectWallet(setSigner)}
-          >
-            <div className="loginContent">Çıkış Yap</div>
+          <div className="loginButton" onClick={() => connectWallet(setSigner)}>
+            <div className="loginContent">Giriş Yap</div>
             <img className="enterLogo" src={enterlogo} alt="" srcset="" />
           </div>
         )}

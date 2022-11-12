@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home/Home";
 import Document from "./components/Document/Document";
+import Document2 from "./components/Document2";
 import './App.css';
 
 import { connectWallet, getCurrentWalletConnected } from "./utils/interaction";
@@ -58,11 +59,15 @@ function App() {
               }
             />
             <Route
-              path="/belgeler/:id"
+              path="/belgeler/1"
               element={
-                <Document>
-
-                </Document>
+                <Document setSigner={setSigner}/>
+              }
+            />
+            <Route
+              path="/belgeler/2"
+              element={
+                <Document2 setSigner={setSigner}/>
               }
             />
           </Routes>

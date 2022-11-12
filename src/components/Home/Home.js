@@ -5,7 +5,7 @@ import Sections from "../Sections";
 const Home = ({setSigner}) => {
   return(
     <div>
-      <Header setSsigner={setSigner} bl={false}/>
+      <Header setSigner={setSigner} bl={false}/>
       <SkyHome/>
       <Sections/>
     </div>

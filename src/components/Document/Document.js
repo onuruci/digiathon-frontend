@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Header from "../Header";
 
-import { signer, signDocument } from "../../utils/interaction";
+import { signer, signCheck } from "../../utils/interaction";
 
 import "./document.css";
 
@@ -27,7 +27,7 @@ const Document = ({setSigner}) => {
   const handleClick = async (doc, sign) => {
     console.log("DOC:   ", doc);
 
-    let res = await signDocument(inputDoc, sign);
+    let res = await signCheck(inputDoc, sign);
 
     console.log("HASH RES:   ", res);
   }
@@ -41,7 +41,7 @@ const Document = ({setSigner}) => {
         <input type="text" placeholder="TC No." sign="tc" onChange={e => handleChange(e, "tc")}/>
         <input type="text" placeholder="Tarih" sign="date" onChange={e => handleChange(e, "date")}/>
         <input type="text" placeholder="Miktar" sign="amount" onChange={e => handleChange(e, "amount")}/>
-        <button onClick={() => handleClick(inputDoc, signer)}>Hash</button>
+        <button onClick={() => handleClick(signer)}>İmzala</button>
       </div>
      
     </div>
