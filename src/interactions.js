@@ -18,6 +18,11 @@ function Interactions() {
     function verify(params) {
       
     }
+
+    function sign(message, ) {
+        hash = ethers.utils.keccak256(message);
+
+    }
     
     return ();
   }
