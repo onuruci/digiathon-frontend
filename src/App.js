@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header";
-import SkyHome from "./components/SkyHome";
-import Sections from "./components/Sections";
+import Home from "./components/Home/Home";
+import Document from "./components/Document/Document";
 import './App.css';
 
 import { connectWallet, getCurrentWalletConnected } from "./utils/interaction";
@@ -44,19 +46,33 @@ function App() {
 
   return (
     <div className="App">
+      <BrowserRouter>
       {
         windowDimensions.width >= 1200 ?
         <>
-          <Header />
-          <SkyHome />
-          <Sections />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home setSigner={setSigner}/>
+              }
+            />
+            <Route
+              path="/belgeler/:id"
+              element={
+                <Document>
+
+                </Document>
+              }
+            />
+          </Routes>
         </>
         :
         <div className="largescreens">
           This application is only available on large screens
         </div>
       }
-      {/* <button onClick={() => connectWallet(setSigner)}>Connect Button</button> */}
+      </BrowserRouter>
     </div>
   );
 }

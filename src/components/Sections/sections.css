@@ -25,6 +25,7 @@
   text-align: center;
   border: solid 0.5rem white;
   margin: 0 auto 0 auto;
+  cursor: pointer;
 }
 
 .sectionicon {

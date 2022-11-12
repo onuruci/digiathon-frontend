@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 
 import trye from "../../utils/trye.png";
 import document from "../../utils/document.png";
@@ -13,11 +14,14 @@ const Sections = () => {
   return(
     <div className="sections">
       <div className="sectioncont">
-        <div className="sectioniconcont">
-          <div className="secticonalign">
-            <img className="sectionicon" src={trye} alt="" />
+        <Link to="/belgeler/1">
+          <div className="sectioniconcont">
+            <div className="secticonalign">
+              <img className="sectionicon" src={trye} alt="" />
+            </div>
           </div>
-        </div>
+        </Link>
+        
         <div className="sectionname">
           Çek & Senet Tahsitalı
         </div>
@@ -27,11 +31,13 @@ const Sections = () => {
       </div>
 
        <div className="sectioncont">
-        <div className="sectioniconcont">
-          <div className="secticonalign">
-            <img className="sectionicon" src={doctor} alt="" />
+         <Link to="/belgeler/2">
+          <div className="sectioniconcont">
+            <div className="secticonalign">
+              <img className="sectionicon" src={doctor} alt="" />
+            </div>
           </div>
-        </div>
+        </Link>
         <div className="sectionname">
           e-Reçete
         </div>
@@ -41,11 +47,13 @@ const Sections = () => {
       </div>
 
        <div className="sectioncont">
+         <Link to="/belgeler/3">
         <div className="sectioniconcont">
           <div className="secticonalign">
             <img className="sectionicon" src={org} alt="" />
           </div>
         </div>
+        </Link>
         <div className="sectionname">
           SGK
         </div>
@@ -55,11 +63,13 @@ const Sections = () => {
       </div>
 
        <div className="sectioncont">
+         <Link to="/belgeler/4">
         <div className="sectioniconcont">
           <div className="secticonalign">
             <img className="sectionicon" src={home} alt="" />
           </div>
         </div>
+        </Link>
         <div className="sectionname">
           Çek & Senet Tahsitalı
         </div>
@@ -69,11 +79,13 @@ const Sections = () => {
       </div>
 
        <div className="sectioncont">
+         <Link to="/belgeler/5">
         <div className="sectioniconcont">
           <div className="secticonalign">
             <img className="sectionicon" src={refresh} alt="" />
           </div>
         </div>
+        </Link>
         <div className="sectionname">
           Saygınlık
         </div>

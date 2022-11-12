@@ -1,8 +1,69 @@
 import { ethers, Wallet } from "ethers";
+import { json } from "react-router-dom";
 
 export var provider;
 export var signer;
 export var walletWithProvider;
+
+export const signDocument = async (jsonInput, signer) => {
+  const domain = {
+    name: "Ether Mail",
+    version: "1",
+    chainId: 1,
+    verifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
+  };
+
+  // The named list of all type definitions
+  const types = {
+    Person: [
+      { name: "name", type: "string" },
+      { name: "wallet", type: "address" },
+    ],
+    inputCheck: [
+      {
+        name: "name",
+        type: "string",
+      },
+      {
+        name: "value",
+        type: "string",
+      },
+    ],
+    Mail: [
+      { name: "from", type: "Person" },
+      { name: "contents", type: "inputCheck" },
+    ],
+  };
+
+  const value = {
+    from: {
+      name: "Cow",
+      wallet: "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
+    },
+    contents: {
+      name: String(jsonInput["name"]),
+      value: String(jsonInput["amount"]),
+    },
+  };
+
+  let hash = await signer._signTypedData(domain, types, value);
+  console.log("Hash:   ", hash);
+  return hash;
+};
+
+export const disconnectWallet = async (setSigner) => {
+  const accounts = await window.ethereum.request({
+    method: "wallet_requestPermissions",
+    params: [
+      {
+        eth_accounts: {},
+      },
+    ],
+  });
+
+  const account = accounts[0];
+  setSigner(account);
+};
 
 export const connectWallet = async (setSigner) => {
   if (window.ethereum) {
