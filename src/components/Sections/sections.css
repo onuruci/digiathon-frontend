@@ -1,0 +1,45 @@
+.sections {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  transform: translateY(-65px);
+  padding: 1rem;
+}
+
+.sectioncont {
+  width: 200px;
+  height: 220px;
+  overflow: hidden;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectioniconcont {
+  background-color: #4284be;
+  border-radius: 100%;
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+  border: solid 0.5rem white;
+  margin: 0 auto 0 auto;
+}
+
+.sectionicon {
+  width: 1.5rem;
+  height: 1.8rem;
+  margin-top: 1.5rem;
+}
+
+.sectionname {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.sectionexp {
+  color: rgb(83, 83, 83);
+  font-size: 12px;
+  margin-top: 0.5rem;
+}
