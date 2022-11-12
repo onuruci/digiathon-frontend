@@ -1,0 +1,56 @@
+.skyhome {
+  width: 100%;
+  height: 20rem;
+  background: radial-gradient(
+      circle at center bottom,
+      rgba(52, 106, 153, 0.55) 25%,
+      rgba(52, 106, 153, 0.2) 100%
+    ),
+    url("//cdn.e-devlet.gov.tr/themes/izmir/images/banners/m00019.1.7.jpg")
+      center center / cover no-repeat,
+    rgb(66, 132, 190);
+  padding-top: 12rem;
+}
+
+.skyimage {
+  width: 100%;
+}
+
+.skycontent {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.esignad {
+  width: 50%;
+  padding: 2rem;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto", sans-serif;
+}
+
+.esignlogo {
+  width: 50%;
+}
+
+.avaimgcontainer {
+  margin: 4rem 4rem 2rem auto;
+  width: 60%;
+}
+
+.avaimage {
+  width: 100%;
+}
+
+.esignad > .signhead {
+  font-size: 44px;
+}
+
+.esignad > .signexp {
+  margin-top: 2rem;
+  font-size: 18px;
+  line-height: 27px;
+  word-spacing: 0.3rem;
+}
