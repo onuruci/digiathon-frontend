@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import {useState} from "react";
 
-function App() {
+function Interactions() {
     const [account, setAccount] = useState("");
     const [provider, setProvider] = useState(null);
   
@@ -22,4 +22,4 @@ function App() {
     return ();
   }
   
-  export default App;
+  export default Interactions;
