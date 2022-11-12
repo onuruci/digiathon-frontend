@@ -75,10 +75,10 @@ const Sections = () => {
           </div>
         </div>
         <div className="sectionname">
-          Çek & Senet Tahsitalı
+          Saygınlık
         </div>
         <div className="sectionexp">
-          Çek ve senetleri noter aracılığı olmadan doğrulama hizmeti
+          Sürdürülebilir topluluk ekonomisi
         </div>
       </div>
 
