@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       {
-        windowDimensions.width >= 1400 ?
+        windowDimensions.width >= 1200 ?
         <>
           <Header />
           <SkyHome />
