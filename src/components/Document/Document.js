@@ -49,7 +49,7 @@ const Document = ({setSigner, setCheck}) => {
     const domain = {
       name: "Ether",
       version: "1",
-      chainId: 43113,
+      chainId: 66666,
       verifyingContract: CONTRACT,
     };
 

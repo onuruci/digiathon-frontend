@@ -21,11 +21,11 @@ const Verify = ({setSigner}) => {
     const domain = {
       name: "Ether Mail",
       version: "1",
-      chainId: 43113,
+      chainId: 666666,
       verifyingContract: CONTRACT,
     };
 
-    const types = {
+    const types = {https://github.com/onuruci/digiathon-frontend/deployments
       check: [
         { name: "name", type: "string" },
         { name: "value", type: "string" },
