@@ -168,9 +168,14 @@
 						"type": "bytes"
 					},
 					{
-						"internalType": "bytes32",
-						"name": "messageHash",
-						"type": "bytes32"
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "value",
+						"type": "string"
 					}
 				],
 				"name": "receteExecution",

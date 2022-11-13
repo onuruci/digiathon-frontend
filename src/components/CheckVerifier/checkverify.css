@@ -19,6 +19,7 @@
 .verifyInfo {
   width: 40%;
   padding: 6rem;
+  text-align: center;
 }
 
 .checkvar {
@@ -34,4 +35,30 @@
 
 .ml {
   margin-left: 1rem;
+}
+
+.truew {
+  margin-top: 2rem;
+  font-size: 36px;
+  font-weight: 800;
+  color: rgb(13, 153, 13);
+}
+
+.wrongw {
+  margin-top: 6rem;
+  font-size: 36px;
+  font-weight: 800;
+  color: rgb(153, 13, 13);
+}
+
+.usebutton {
+  border: 2px solid rgb(34, 83, 156);
+  margin-top: 2rem;
+  padding: 0.5rem;
+  max-width: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(37, 95, 172);
+  color: white;
+  cursor: pointer;
 }

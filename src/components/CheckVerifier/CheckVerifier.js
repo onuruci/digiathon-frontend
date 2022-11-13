@@ -1,19 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Header from "../Header";
 
 import './checkverify.css';
+import qr from "../../utils/qr-code.png"
 
 import { signer } from "../../utils/interaction";
 
 import { verifyCheck } from "../../utils/interaction";
+import { executeRecete } from "../../utils/interaction";
+import { getUsed } from "../../utils/interaction";
 
 
 const CheckVerifier = ({setSigner, check}) => {
 
+  const [addr, setAddr] = useState("");
+  const [used, setUsed] = useState(false);
+
   useEffect(() => {
-    verifyCheck(check["hash"], check["name"], check["value"]);
+    verifyCheck(check["hash"], check["name"], check["value"], setAddr);
+    getUsed(check["hash"], setUsed);
   }, [signer]);
+
+  const executedoc = async () => {
+    executeRecete(check["hash"], check["name"], check["value"]);
+  };
 
   return(
     <div>
@@ -48,9 +59,30 @@ const CheckVerifier = ({setSigner, check}) => {
           </div>
         </div>
         <div className="verifyInfo">
-          <div>
-            Doğrulanmıştır
-          </div>
+          {
+            check["address"] === addr ?
+            <div>
+              <div className="truew">
+                Doğrulanmıştır
+              </div>
+              {
+                !used ? <div className="usebutton" onClick={()=> executedoc()}>
+                Belgeyi Kullan
+              </div> : <div>
+                Belge Kullanılmıştır
+              </div>
+              }
+              <div>
+                <img style={{width: "16rem", marginTop: "2rem"}} src={qr} alt="" />
+              </div>
+              
+            </div>:
+            <div>
+              <div className="wrongw">
+                Yanlış Hash
+              </div>
+            </div>
+          }
         </div>
       </div>
       

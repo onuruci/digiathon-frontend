@@ -10,9 +10,22 @@ var checkContract;
 const axios = require("axios");
 const checkabi = require("./checkabi.json");
 
-export const verifyCheck = async (hash, name, value) => {
+export const executeRecete = async (hash, name, value) => {
+  let bool = await checkContract.receteExecution(hash, name, value);
+};
+
+export const getUsed = async (hash, setUsed) => {
+  let bool = await checkContract.usedSignatures(hash);
+  setUsed(bool);
+  console.log("BOOOL:  ", bool);
+};
+
+export const verifyCheck = async (hash, name, value, setAddr) => {
   console.log("AAAAAA");
-  console.log(await checkContract.verify(hash, name, value));
+  let addr = await checkContract.verify(hash, name, value);
+  console.log(addr);
+  setAddr(addr);
+  return addr;
 };
 
 export const disconnectWallet = async (setSigner) => {

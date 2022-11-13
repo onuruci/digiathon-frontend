@@ -7,6 +7,8 @@ import { utils } from "ethers";
 
 import { signer } from "../../utils/interaction";
 
+import CONTRACT from "../../utils/contract";
+
 import "./verify.css";
 import axios from "axios";
 
@@ -19,8 +21,8 @@ const Verify = ({setSigner}) => {
     const domain = {
       name: "Ether Mail",
       version: "1",
-      chainId: 1,
-      verifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
+      chainId: 43113,
+      verifyingContract: CONTRACT,
     };
 
     const types = {
