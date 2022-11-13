@@ -12,6 +12,7 @@ import "./document.css";
 import axios from "axios";
 import { _TypedDataEncoder } from "ethers/lib/utils";
 import { Link } from "react-router-dom";
+import ENDPOINT from "../../utils/endpoint";
 
 const Document = ({setSigner, setCheck}) => {
   const [tab, setTab] = useState(1);
@@ -49,7 +50,7 @@ const Document = ({setSigner, setCheck}) => {
     const domain = {
       name: "Ether",
       version: "1",
-      chainId: 66666,
+      chainId: 43113,
       verifyingContract: CONTRACT,
     };
 
@@ -77,7 +78,7 @@ const Document = ({setSigner, setCheck}) => {
 
   console.log("RESULTT :   " , resultt);
 
-  let save = await axios.post("http://localhost:3000/newDoc", {
+  let save = await axios.post(ENDPOINT+"newDoc", {
     name: check.name,
     value: check.value,
     hash: hash,
@@ -92,7 +93,7 @@ const Document = ({setSigner, setCheck}) => {
 
 const getChecks = async () => {
   let addr = await signer.getAddress();
-  let value = await axios.post("http://localhost:3000/getchecks", {
+  let value = await axios.post(ENDPOINT+"getchecks", {
     addr: addr
   });
   

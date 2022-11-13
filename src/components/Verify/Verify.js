@@ -11,17 +11,18 @@ import CONTRACT from "../../utils/contract";
 
 import "./verify.css";
 import axios from "axios";
+import ENDPOINT from "../../utils/endpoint";
 
 const Verify = ({setSigner}) => {
 
   const getValues = async () => {
-    const result = await axios.get("http://localhost:3000/getdocs");
+    const result = await axios.get(ENDPOINT+"getdocs");
     const data = result.data;
 
     const domain = {
       name: "Ether Mail",
       version: "1",
-      chainId: 666666,
+      chainId: 43113,
       verifyingContract: CONTRACT,
     };
 
