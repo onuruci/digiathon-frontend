@@ -21,7 +21,6 @@ export const getUsed = async (hash, setUsed) => {
 };
 
 export const verifyCheck = async (hash, name, value, setAddr) => {
-  console.log("AAAAAA");
   let addr = await checkContract.verify(hash, name, value);
   console.log(addr);
   setAddr(addr);

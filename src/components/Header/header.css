@@ -19,6 +19,7 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 .logoImg {
@@ -59,4 +60,21 @@
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 0.3rem;
+}
+
+.tc {
+  position: absolute;
+}
+
+.tcpop {
+  top: 3rem;
+  left: 0rem;
+  position: absolute;
+  width: 18rem;
+  height: 4rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  row-gap: 1rem;
 }

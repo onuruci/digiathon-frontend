@@ -1,0 +1,16 @@
+.tc {
+  position: absolute;
+}
+
+.tcpop {
+  top: 3rem;
+  left: 0rem;
+  position: absolute;
+  width: 18rem;
+  height: 4rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  row-gap: 1rem;
+}
