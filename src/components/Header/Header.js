@@ -34,7 +34,7 @@ const Header = ({ setSigner, bl }) => {
           </div>
         </Link>
 
-        {signer === "" ? (
+        {addr === "" ? (
           <div className="loginButton" onClick={() => connectWallet(setSigner)}>
             <div className="loginContent">Giriş Yap</div>
             <img className="enterLogo" src={enterlogo} alt="" srcset="" />
