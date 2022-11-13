@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Header from "../Header";
 
-import { signer, signCheck } from "../../utils/interaction";
+import { signer } from "../../utils/interaction";
 
 import "./document.css";
 
@@ -25,7 +25,7 @@ const Document2 = ({ setSigner }) => {
   const handleClick = async (doc, sign) => {
     console.log("DOC:   ", doc);
 
-    let res = await signCheck(inputDoc, sign);
+    let res = "await signCheck(inputDoc, sign)";
 
     console.log("HASH RES:   ", res);
   };

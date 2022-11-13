@@ -7,12 +7,16 @@ import Header from "./components/Header";
 import Home from "./components/Home/Home";
 import Document from "./components/Document/Document";
 import Document2 from "./components/Document2";
+import Verify from "./components/Verify/Verify";
+import CheckVerifier from "./components/CheckVerifier";
 import './App.css';
 
 import { connectWallet, getCurrentWalletConnected } from "./utils/interaction";
 
 function App() {
   const [signer, setSigner] = useState("");
+
+  const [checkV, setCheckV] = useState({});
 
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -61,13 +65,19 @@ function App() {
             <Route
               path="/belgeler/1"
               element={
-                <Document setSigner={setSigner}/>
+                <Document setSigner={setSigner} setCheck={setCheckV}/>
               }
             />
             <Route
               path="/belgeler/2"
               element={
                 <Document2 setSigner={setSigner}/>
+              }
+            />
+            <Route
+              path="/belge_dogrula/1"
+              element={
+                <CheckVerifier setSigner={setSigner} check={checkV}/>
               }
             />
           </Routes>

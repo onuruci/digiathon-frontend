@@ -1,59 +1,18 @@
 import { ethers, Wallet } from "ethers";
 import { json } from "react-router-dom";
-
+import CONTRACT from "./contract";
 export var provider;
 export var signer;
 export var walletWithProvider;
 
-export const signCheck = async () => {
-  const domain = {
-    name: "Ether Mail",
-    version: "1",
-    chainId: 1,
-    verifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
-  };
+var checkContract;
 
-  // The named list of all type definitions
-  const types = {
-    Person: [
-      { name: "name", type: "string" },
-      { name: "wallet", type: "address" },
-    ],
-    Id: [
-      { name: "name", type: "string" },
-      { name: "surname", type: "string" },
-      { name: "tc", type: "string" },
-      { name: "value", type: "string" },
-      { name: "med", type: "array" },
-    ],
-    Mail: [
-      { name: "from", type: "Person" },
-      { name: "to", type: "Person" },
-      { name: "contents", type: "Id" },
-    ],
-  };
+const axios = require("axios");
+const checkabi = require("./checkabi.json");
 
-  const checkValue = {
-    from: {
-      name: "Cow",
-      wallet: "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
-    },
-    to: {
-      name: "Bob",
-      wallet: "0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB",
-    },
-    contents: {
-      name: "emre",
-      surname: "istaken",
-      tc: "123546789",
-      date: "12/11/22",
-      value: "150",
-    },
-  };
-
-  let hash = await signer._signTypedData(domain, types, checkValue);
-  console.log("Hash:   ", hash);
-  return hash;
+export const verifyCheck = async (hash, name, value) => {
+  console.log("AAAAAA");
+  console.log(await checkContract.verify(hash, name, value));
 };
 
 export const disconnectWallet = async (setSigner) => {
@@ -81,12 +40,14 @@ export const connectWallet = async (setSigner) => {
     console.log("Hash:   ", hash);
 
     let hashMessage = await ethers.utils.hashMessage("Hello");
-    console.log(hashMessage);
+    console.log("HASH MESSAGE:  ", hashMessage);
 
     let res = await ethers.utils.verifyMessage(
       "Hello",
       "0x7b163d47993578ad054399c7a7f2ba63d16b44f40a0e6d5f07432cc3bbe4413f17785bbf74203180df365fae176ea1bcac0c811ba65f10085d4f72e49512fa7d1c"
     );
+
+    checkContract = new ethers.Contract(CONTRACT, checkabi, signer);
 
     console.log("RES:   ", res);
 
@@ -110,6 +71,7 @@ export const getCurrentWalletConnected = async (setSigner) => {
         let add = await signer.getAddress();
 
         setSigner(add);
+        checkContract = new ethers.Contract(CONTRACT, checkabi, signer);
         console.log("Current: ", add);
       } else {
         return {
