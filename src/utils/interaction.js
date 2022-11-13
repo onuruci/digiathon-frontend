@@ -80,9 +80,12 @@ export const connectWallet = async (setSigner) => {
     let hash = await signer.signMessage("Hello");
     console.log("Hash:   ", hash);
 
+    let hashMessage = await ethers.utils.hashMessage("Hello");
+    console.log(hashMessage);
+
     let res = await ethers.utils.verifyMessage(
       "Hello",
-      "hash"
+      "0x7b163d47993578ad054399c7a7f2ba63d16b44f40a0e6d5f07432cc3bbe4413f17785bbf74203180df365fae176ea1bcac0c811ba65f10085d4f72e49512fa7d1c"
     );
 
     console.log("RES:   ", res);
@@ -121,7 +124,7 @@ export const getCurrentWalletConnected = async (setSigner) => {
       };
     }
     console.log("Signer:   ", signer);
-    console.log("Procider:   ", provider);
+    console.log("Provider:   ", provider);
   } else {
     return {
       address: "",
