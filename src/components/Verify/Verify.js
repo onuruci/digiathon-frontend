@@ -25,7 +25,7 @@ const Verify = ({setSigner}) => {
       verifyingContract: CONTRACT,
     };
 
-    const types = {https://github.com/onuruci/digiathon-frontend/deployments
+    const types = {
       check: [
         { name: "name", type: "string" },
         { name: "value", type: "string" },
